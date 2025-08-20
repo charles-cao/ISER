@@ -118,6 +118,8 @@ The demo includes:
 - Local anomaly detection on spiral patterns  
 - Dependency anomaly detection on correlated features
 
+## Performance
+![Performance](table.png "Performance")
 
 
 ## Contributing
