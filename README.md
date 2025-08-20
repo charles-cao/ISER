@@ -1,6 +1,5 @@
 # ISER: Isolation-based Spherical Ensemble Representations for Anomaly Detection
 
-A Python implementation of the ISER (Isolation-based Spherical Ensemble Representations) algorithm for unsupervised anomaly detection, based on the research paper published in PVLDB.
 
 ## Overview
 
