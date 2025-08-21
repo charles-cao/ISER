@@ -1,17 +1,13 @@
 import numpy as np
 from random import sample
-from scipy.spatial.distance import cdist
-from scipy.sparse import csr_matrix
 from sklearn.metrics import euclidean_distances
 from sklearn.utils.validation import check_is_fitted, check_random_state
-import torch
 from sklearn.ensemble import IsolationForest
-from sklearn.metrics._pairwise_distances_reduction import ArgKmin
 import warnings
 from sklearn.preprocessing import normalize
 from sklearn.metrics.pairwise import cosine_similarity, cosine_distances
 from sklearn.ensemble import IsolationForest
-
+import torch
 warnings.filterwarnings('ignore', category=RuntimeWarning)
 
 
@@ -72,7 +68,7 @@ class ISER:
         iso_map = np.ones([X.shape[0], self.n_estimators])
 
         for i in range(self.n_estimators):
-            x_dists = euclidean_distances(X, self._centroids[i], squared=True)            
+            x_dists = euclidean_distances(X, self._centroids[i], squared=True)           
             cover_radius = np.where(
                 x_dists <= self._centroids_radius_array[i],
                 self._centroids_radius_array[i], np.nan)
@@ -81,7 +77,6 @@ class ISER:
             iso_map[x_covered, i] = self._dratio[i][cnn_x]
 
         return iso_map
-
 
     def ISER_A(self, X):
         if self.novelty:
@@ -104,7 +99,6 @@ class ISER:
         return scores
 
 
-    
     def ISER_IF(self, X):
         if self.novelty:
             X_transformed = self.transform(X)
